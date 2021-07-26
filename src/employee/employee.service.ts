@@ -12,13 +12,7 @@ export class EmployeeService {
     private employeeRepository: Repository<Employee>,
   ) {}
   async findAll(): Promise<Employee[]> {
-    const emp: Employee = new Employee();
-    emp.id = 1;
-    emp.firstName = 'Anubhav';
-    emp.lastName = 'Singh';
-    emp.designation = 'Student';
-    emp.city = 'Gwalior';
-    return [emp];
+    return this.employeeRepository.find();
   }
   async create(employee: EmployeeCreateDTO): Promise<Employee> {
     const emp = this.employeeRepository.create(employee);
