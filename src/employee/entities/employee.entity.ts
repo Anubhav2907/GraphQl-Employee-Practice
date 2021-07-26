@@ -1,13 +1,13 @@
 /* eslint-disable prettier/prettier */
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
 
 @ObjectType()
 @Entity()
 export class Employee {
   @Field()
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
   @Field()
   @Column()
   firstName: string;

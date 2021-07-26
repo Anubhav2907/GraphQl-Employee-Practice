@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 
 type Employee {
-  id: String!
+  id: Float!
   firstName: String!
   lastName: String!
   designation: String!
@@ -11,5 +11,16 @@ type Employee {
 }
 
 type Query {
-  getAllEmployees: Employee!
+  getAllEmployees: [Employee!]!
+}
+
+type Mutation {
+  createEmployee(employee: EmployeeCreateDTO!): Employee!
+}
+
+input EmployeeCreateDTO {
+  firstName: String!
+  lastName: String!
+  designation: String!
+  city: String
 }
