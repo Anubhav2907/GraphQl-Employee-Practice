@@ -8,12 +8,15 @@ type Employee {
   lastName: String!
   designation: String!
   city: String
+  project: Project!
+  projectId: String!
 }
 
 type Project {
   id: Float!
   name: String!
   code: Int!
+  employees: [Employee!]
 }
 
 type Query {
@@ -34,6 +37,7 @@ input EmployeeCreateDTO {
   lastName: String!
   designation: String!
   city: String
+  projectId: String!
 }
 
 input CreateProjectInput {

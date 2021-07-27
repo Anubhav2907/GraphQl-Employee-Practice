@@ -1,6 +1,13 @@
 /* eslint-disable prettier/prettier */
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
+import { Project } from 'src/project/entities/project.entity';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  PrimaryColumn,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @ObjectType()
 @Entity()
@@ -20,4 +27,10 @@ export class Employee {
   @Field({ nullable: true })
   @Column({ nullable: true })
   city: string;
+  @ManyToOne(() => Project, (project) => project.employees)
+  @Field(() => Project)
+  project: Project;
+  @Column()
+  @Field()
+  projectId: string;
 }
